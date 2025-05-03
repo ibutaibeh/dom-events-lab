@@ -16,8 +16,15 @@ let result;
 //helper code test; since buttonNumber has more than one item (button) i should use for loop function to listen for events.
 for (let i = 0; i < buttonNumber.length; i++) {
   buttonNumber[i].addEventListener('click', (event) => {
-   console.log(event.target.innerText);
-   num1=calDisplay.textContent+=event.target.innerText;
+
+    if(calculatorOperator){
+        console.log(event.target.innerText);
+        num2=calDisplay.textContent+=event.target.innerText;
+    }else{
+        console.log(event.target.innerText);
+        num1=calDisplay.textContent+=event.target.innerText;
+    }
+
   });
  }
 for(let j=0; j<buttonOperator.length;j++){
@@ -35,7 +42,7 @@ for(let j=0; j<buttonOperator.length;j++){
 for(let k=0; k<buttonResult.length;k++){
 buttonResult[k].addEventListener('click',(event)=>{
     console.log(event.target.innerText);
-    calDisplay.textContent= resultFucntion(num1,1,calculatorOperator);
+    calDisplay.textContent= resultFucntion(num1,num2,calculatorOperator);
     //calDisplay.textContent=event.target.innerText;
 })
 }
